@@ -16,6 +16,7 @@
     "@storybook/vue": "*"
   },
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepublish": "tsc"
   }
 }
