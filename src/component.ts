@@ -6,6 +6,7 @@ type DefineStoryComponentOptions = {
 	component: VueConstructor;
 	args?: Partial<Args>;
 	argTypes?: ArgTypes;
+	slot?: string;
 };
 
 export function defineStoryComponent(options: DefineStoryComponentOptions) {
@@ -15,7 +16,10 @@ export function defineStoryComponent(options: DefineStoryComponentOptions) {
 			components: {
 				StoryComponent: options.component as any,
 			},
-			template: `<story-component v-bind="$props" />`,
+			template: `
+			<story-component v-bind="$props" />
+				${options.slot ?? ''}
+			</story-component>`,
 		}),
 		args: options.args,
 		argTypes: options.argTypes,
