@@ -1,6 +1,6 @@
 {
   "name": "@lilian.promenzio/storybook-vue-helper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:lilian-promenzio/storybook-vue-helper.git",
   "author": "Lilian <lilian.promenzio@gmail.com>",
@@ -13,5 +13,8 @@
   },
   "peerDependencies": {
     "@storybook/vue": "*"
+  },
+  "scripts": {
+    "release": "standard-version"
   }
 }
