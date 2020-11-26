@@ -18,5 +18,8 @@
   "scripts": {
     "release": "standard-version",
     "prepublishOnly": "tsc"
+  },
+  "dependencies": {
+    "kebab-case": "^1.0.0"
   }
 }
