@@ -7,7 +7,7 @@ type VueComponent = ComponentOptions<Vue> | VueConstructor;
 
 export type DefineStoryComponentOptions = {
 	component: VueComponent;
-	mixins?: VueComponent[];
+	mixins?: (VueComponent | undefined | null)[];
 	args?: Partial<Args>;
 	argTypes?: ArgTypes;
 	slot?: string;
@@ -57,9 +57,12 @@ export function defineStoryComponent(options: DefineStoryComponentOptions) {
 		args: options.args,
 		argTypes: options.argTypes,
 		story: (storyArgs, { argTypes }) => {
+			const mixins: VueComponent[] = options.mixins
+				? (options.mixins.filter(Boolean) as VueComponent[])
+				: [];
 			return {
 				name: 'StoryComponentWrapper',
-				mixins: options.mixins,
+				mixins,
 				components: {
 					StoryComponent,
 					StoryComponentRaw: options.component,
