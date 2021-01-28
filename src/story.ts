@@ -1,6 +1,6 @@
 import type { Story, Meta, ArgTypes, Args } from '@storybook/vue';
 
-type DefineStoryOptions = {
+export type DefineStoryOptions = {
 	args?: Partial<Args>;
 	argTypes?: ArgTypes;
 	story: Story;
