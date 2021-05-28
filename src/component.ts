@@ -37,7 +37,7 @@ export const StoryComponent = {
 	template: `<component :is="storyComponent" v-bind="args" v-on="listeners">
 		<slot v-for="(_, name) in $slots" :name="name" :slot="name"></slot>
 		<template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="scope">
-			<slot name="name" v-bind="scope"></slot>
+			<slot :name="name" v-bind="scope"></slot>
 		</template>
 	</component>`,
 };
